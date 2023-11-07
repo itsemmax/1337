@@ -6,7 +6,7 @@ char *ft_strchr(const char *s, int c)
 	size_t i;
 
 	i = 0;
-	while(s[i])
+	while(s && s[i])
 	{
 		if(s[i] == c)
 		{
@@ -16,3 +16,10 @@ char *ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
+/*#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char tab[] = "hello world";
+	printf("%s\n", strchr(tab,'l'));
+}*/

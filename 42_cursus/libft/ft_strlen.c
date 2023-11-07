@@ -7,9 +7,14 @@ size_t ft_strlen(const char *s)
 
 
 	i = 0;
-	while(s[i])
+	while(s && s[i])
 	{
 		i++;
 	}
 	return (i);
 }
+/*int main ()
+{
+	char *str = NULL;
+	printf("%ld", ft_strlen(str));
+}*/
