@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/09 14:57:56 by ichaoub           #+#    #+#             */
+/*   Updated: 2023/11/09 14:57:57 by ichaoub          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"libft.h"
 
 char *ft_strnstr(const char *haystack,const char *needle,size_t len)
@@ -7,8 +19,8 @@ char *ft_strnstr(const char *haystack,const char *needle,size_t len)
 
 	i = 0;
 	if(!needle)
-	{(
-		return((char *)haystack));
+	{
+		return((char *)haystack);
 	}
 	while(haystack[i] && i < len)
 	{
@@ -25,12 +37,12 @@ char *ft_strnstr(const char *haystack,const char *needle,size_t len)
 	}
 	return(NULL);
 }
-#include<stdio.h>
+/*#include<stdio.h>
 #include<string.h>
 int main()
 {
 const char tab[] = "hello imane zweena";
-const char tab1[] = "imane";
-printf("%s",ft_strnstr(tab,tab1,16));
-//printf("%s",strnstr(tab,tab1,16));
-}
+const char tab1[] = "hel";
+printf("%s",ft_strnstr(tab,tab1,3));
+//printf("%s",strnstr(tab,tab1));
+}*/
