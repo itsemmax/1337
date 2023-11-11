@@ -31,11 +31,11 @@ char *ft_strjoin(char const *s1, char const *s2)
 	return(p);
 }
 
-#include<stdio.h>
+/*#include<stdio.h>
 int main()
 {
 	char *p;
 	p = ft_strjoin("hello ","world");
 	printf("%s\n",p);
 	free(p);
-}
+}*/
