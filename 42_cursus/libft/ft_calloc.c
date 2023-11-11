@@ -23,16 +23,17 @@ void *ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(p,nmemb * size);
 	return(p);
 }
-#include<stdio.h>
+
+/*#include<stdio.h>
 int main()
 {
 	int *p;
 	p = (int *) ft_calloc(20 , sizeof(int));
-	for(int i; i = 0;i++)
-	{
-		printf("%d",p[i]);
+	//for(int i; i = 0;i++)
+	//{
+		printf("%ls",p);
 		
-	}
+	//}
 	free(p);
 	printf("\n");
-}
+}*/
