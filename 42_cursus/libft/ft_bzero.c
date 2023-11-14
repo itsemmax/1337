@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:56:12 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/09 14:56:14 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/13 12:06:52 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@ void ft_bzero(void *s, size_t n)
 	ft_memset(s,0,n);
 }*/
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *p;
-	size_t i;
+	unsigned char	*p;
+	size_t			i;
 
 	p = (unsigned char *) s;
 	i = 0;
-
-	while(i < n)
+	while (i < n)
 	{
 		p[i] = '\0';
 		i++;

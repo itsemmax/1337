@@ -6,13 +6,13 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:56:44 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/09 14:56:45 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/13 12:11:05 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-	return(c >= 32 && c <= 126);
+	return (c >= 32 && c <= 126);
 }

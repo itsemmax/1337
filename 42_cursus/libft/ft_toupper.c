@@ -6,15 +6,15 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:58:10 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/09 14:58:11 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/13 14:02:49 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	if(c >= 'a' && c <= 'z')
+	if (c >= 'a' && c <= 'z')
 	{
 		return (c - 32);
 	}

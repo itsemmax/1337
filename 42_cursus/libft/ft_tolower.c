@@ -6,15 +6,15 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:58:04 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/09 14:58:05 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/13 14:02:16 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-	if(c >= 'A' && c <= 'Z')
+	if (c >= 'A' && c <= 'Z')
 	{
 		return (c + 32);
 	}

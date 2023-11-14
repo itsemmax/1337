@@ -6,22 +6,23 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:59:27 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/09 15:32:26 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/13 12:09:00 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char *p;
+	char	*p;
+
 	p = malloc(nmemb * size);
-	if(!p)
+	if (!p)
 	{
-		return(NULL);
+		return (NULL);
 	}
-	ft_bzero(p,nmemb * size);
-	return(p);
+	ft_bzero (p, nmemb * size);
+	return (p);
 }
 
 /*#include<stdio.h>
