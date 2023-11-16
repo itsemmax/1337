@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include"libft.h"
-#include <string.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -20,6 +19,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	a = (unsigned char *) dest;
 	b = (unsigned char *) src;
+	if(!a && !b)
+	{
+		return (NULL);
+	}
 	if (a > b)
 	{
 		while (n > 0)
@@ -36,7 +39,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 }
 /*#include <stdio.h>
 int main(){
-	char p[8]= "WAHIBAB";
-	ft_memmove(p+2, p+2, 3);
+	char p[]= "hello";
+	char a[] = "imane";
+	ft_memmove(p, a, 5);
 	printf("%s", p);
 }*/

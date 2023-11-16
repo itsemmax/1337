@@ -15,7 +15,9 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*p;
-
+	if (nmemb > __SIZE_MAX__ / size) {
+        return NULL;
+    }
 	p = malloc(nmemb * size);
 	if (!p)
 	{
@@ -30,11 +32,11 @@ int main()
 {
 	int *p;
 	p = (int *) ft_calloc(20 , sizeof(int));
-	//for(int i; i = 0;i++)
-	//{
-		printf("%ls",p);
+	for(int i; i = 0;i++)
+	{
+		printf("%ls//",p);
 		
-	//}
+	}
 	free(p);
 	printf("\n");
 }*/

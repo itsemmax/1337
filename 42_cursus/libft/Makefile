@@ -10,40 +10,55 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-
+SRCS = ft_atoi.c \
+				ft_bzero.c \
+				ft_calloc.c \
+				ft_isalnum.c \
+				ft_isalpha.c \
+				ft_isascii.c \
+				ft_isdigit.c \
+				ft_isprint.c \
+				ft_memchr.c \
+				ft_memcmp.c \
+				ft_memcpy.c \
+				ft_memmove.c \
+				ft_memset.c \
+				ft_split.c \
+				ft_strchr.c \
+				ft_strdup.c \
+				ft_strjoin.c \
+				ft_strlcpy.c \
+				ft_strlcat.c \
+				ft_strlen.c \
+				ft_strncmp.c \
+				ft_strnstr.c \
+				ft_strrchr.c \
+				ft_strtrim.c \
+				ft_substr.c \
+				ft_tolower.c \
+				ft_toupper.c  
+OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 CC = cc
+FLAGS = -Wall -Werror -Wextra
+NAME = libft.a
+RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror -std=c99
+all : $(NAME)
+	$(CC) $(FLAGS) -c $(SRCS)
 
-DEPS = libft.h
+$(NAME): $(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
-OBJ = ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o\
-ft_memset.o ft_strchr.o ft_strlen.o ft_strncmp.o ft_strrchr.o ft_toupper.o ft_tolower.o\
-ft_memchr.o ft_bzero.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_strlcpy.o ft_strlcat.o\
-ft_strnstr.o ft_atoi.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o\
-
-
-
-
-
-%.o: %.c $(DEPS)
-	$(CC) -c $< $(CFLAGS)
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
-
-bonus: $(OBJBONUS) $(NAME) $(OBJ)
-	ar rcs $(NAME) $(OBJBONUS) $(OBJ)
+bonus:
+	ar rcs $(NAME) $(BONUS_OBJS)
 
 clean:
-	rm -f *.o
+	$(RM) *.o
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: clean fclean all
+.PHONY: all clean fclean re
