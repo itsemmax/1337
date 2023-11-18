@@ -23,8 +23,10 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
-/*int main ()
-{
-	char *str = NULL;
-	printf("%ld", ft_strlen(str));
-}*/
+// #include<string.h>
+// #include<stdio.h>
+// int main ()
+// {
+// 	char *str = "hello";
+// 	printf("%ld",ft_strlen(str));
+// }
