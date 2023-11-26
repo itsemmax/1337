@@ -43,10 +43,7 @@ SRCS = ft_atoi.c \
 				ft_substr.c \
 				ft_tolower.c \
 				ft_toupper.c 
-BONUS_SRCS = ft_lstnew.c \
-				ft_lstadd_front.c
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 NAME = libft.a
@@ -57,18 +54,9 @@ all: $(NAME)
 $(NAME): $(OBJS) 
 	ar rc $(NAME) $(OBJS)
 
-bonus: $(BONUS_OBJS)
-
-$(BONUS_OBJS): $(BONUS_SRCS)
-	$(CC) $(CFLAGS) -c $(BONUS_SRCS)
-	ar rc $(NAME) $(BONUS_OBJS)
-
-clean:
-	$(RM) $(BONUS_OBJS) $(OBJS)
-
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all fclean re

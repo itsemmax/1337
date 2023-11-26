@@ -38,3 +38,10 @@ int main()
 		printf("%c------",tab[i]);
 	}
 }*/
+
+/*int main ()
+{
+	int a = 0;
+	ft_memset((char *)&a + 3, 128, 1);
+	printf("%d",a);
+}*/

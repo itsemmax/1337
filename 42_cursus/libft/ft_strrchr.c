@@ -30,7 +30,7 @@ char	*ft_strrchr(const char *s, int c)
 
 /*#include<stdio.h>
 int main(){
-	char tab[] = "hellohsdfukhflbsjvbj";
+	char tab[] = "hllohsdfukhflebsjvbj";
 	char a = 'l';
-	printf("%s", ft_strrchr(tab,a));
+	printf("%s", ft_strrchr(tab,1125));
 }*/
