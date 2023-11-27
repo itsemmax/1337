@@ -29,8 +29,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	return (ft_substr(s1, i, (j - i) + 1));
 }
- 
-// #include<stdio.h>
+
+/*#include<stdio.h>
 // int main()
 // {
     // char *a;
@@ -40,4 +40,4 @@ char	*ft_strtrim(char const *s1, char const *set)
     // a = ft_strtrim(tab,set);
     // printf("%s\n", a);
     // free(a);
-// }
+}*/ 

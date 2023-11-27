@@ -6,70 +6,69 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:51:30 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/20 17:51:31 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/27 14:55:10 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int ft_countdigit(long nb)
+int	ft_countdigit(long nb)
 {
-	int count;
+	int	count;
+
 	count = 0;
-	if(nb < 0)
+	if (nb < 0)
 	{
 		nb *= -1;
 		count++;
 	}
-	while(nb > 0)
+	while (nb > 0)
 	{
 		nb /= 10;
 		count++;
 	}
-	return(count);
+	return (count);
 }
-char *ft_nb_is_zero(char *p)
+
+char	*ft_nb_is_zero(char *p)
 {
 	p = (char *)malloc(2 * sizeof(char));
-	if(!p)
+	if (!p)
 	{
-		return(NULL);
+		return (NULL);
 	}
 	p[0] = '0';
 	p[1] = '\0';
-	return(p); 
+	return (p);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	long nb;
-	char *p;
-	int a;
+	long	nb;
+	int		a;
+	char	*p;
 
 	nb = n;
 	a = ft_countdigit(nb);
 	p = NULL;
-	if(nb == 0)
-		return(ft_nb_is_zero(p));
-	p = (char *)malloc(sizeof(char) * a + 1);
-	if(!p)
-	{
-		return(NULL);
-	}
-	p[a] = '\0';
-	a--;
-	if(nb < 0)
+	if (nb == 0)
+		return (ft_nb_is_zero(p));
+	p = (char *)malloc(sizeof(char) * (a + 1));
+	if (!p)
+		return (NULL);
+	p[a--] = '\0';
+	if (nb < 0)
 	{
 		p[0] = '-';
 		nb *= -1;
 	}
-	while(nb > 0 && a >= 0)
+	while (nb > 0 && a >= 0)
 	{
 		p[a] = nb % 10 + '0';
 		nb /= 10;
 		a--;
 	}
-	return(p);
+	return (p);
 }
 
 /*#include<stdio.h>
