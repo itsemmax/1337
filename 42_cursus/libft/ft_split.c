@@ -61,7 +61,7 @@ char	**ft_allocate(int c2)
 {
 	char	**p;
 
-	p = (char **)malloc(sizeof (char *) * (c2 + 1));
+	p = (char **)malloc(sizeof(char *) * (c2 + 1));
 	if (!p)
 	{
 		return (NULL);
@@ -78,7 +78,8 @@ char	**ft_split(char const *s, char c)
 
 	i = -1;
 	count = count_word((char *)s, c);
-	p = ft_allocate(count);
+	if (!(p = ft_allocate(count)))
+		return (NULL);
 	while (++i < count)
 	{
 		while (*s == c)
