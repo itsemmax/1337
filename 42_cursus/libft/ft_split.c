@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:51:01 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/29 10:23:42 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/29 11:01:08 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	ft_strncpy(char *dst, char *src, int c)
 	dst[i] = '\0';
 }
 
-void	*ft_free(char **p, int a)
+static void	*ft_free(char **p, int a)
 {
 	int	i;
 
@@ -58,7 +58,7 @@ void	*ft_free(char **p, int a)
 	return (NULL);
 }
 
-void	*rempli(char *s, char c, char **p, int count)
+static void	*rempli(char *s, char c, char **p, int count)
 {
 	int	j;
 	int	i;

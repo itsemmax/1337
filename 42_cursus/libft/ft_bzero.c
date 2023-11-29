@@ -26,14 +26,14 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-/*#include<stdio.h>
-#include<string.h>
-int main()
-{
-	int tab[] = {1,3,4,5,6,};
-	ft_bzero(tab,8);
-	for (int i=0;i<5;i++)
-	{
-		printf("%i------",tab[i]);
-	}
-}*/
+// #include<stdio.h>
+// #include<string.h>
+// int main()
+// {
+// 	int tab[] = {1,3,4,5,6,5};
+// 	ft_bzero(tab,12);
+// 	for (int i=0;i<6;i++)
+// 	{
+// 		printf("%i------",tab[i]);
+// 	}
+// }

@@ -36,9 +36,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*#include<stdio.h>
-
-int main(){
+//#include<stdio.h>
+/*int main(){
 	char s[] = "hello";
 	char t[] = "imanech";
 	char a[] = "hello";
@@ -48,10 +47,9 @@ int main(){
 	printf("%s\n",s);
 	printf("%s\n",a);
 }*/
-/*int main()
-{
-	char tab[] = "hello";
-	char *tab1;
-	printf("%s",(char *)ft_memcpy(tab1,tab,3));
-
-}*/
+// int main()
+// {
+// 	char tab[] = "hello";
+// 	char *s = malloc(10);
+// 	printf("%s",(char *)ft_memcpy(s,tab,3));
+// }

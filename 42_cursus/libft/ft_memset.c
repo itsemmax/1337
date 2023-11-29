@@ -27,21 +27,38 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-/*#include<stdio.h>
-#include<string.h>
-int main()
-{
-	char tab[] = "hello";
-	printf("%s",(char *) ft_memset(tab,'a',2));
-	for (int i=0;i<5;i++)
-	{
-		printf("%c------",tab[i]);
-	}
-}*/
+//#include<stdio.h>
+// #include<string.h>
+// int main()
+// {
+// 	char tab[] = "hello";
+// 	printf("%s",(char *) ft_memset(tab,'a',2));
+// 	for (int i=0;i<5;i++)
+// 	{
+// 		printf("%c------",tab[i]);
+// 	}
+// }
 
-/*int main ()
-{
-	int a = 0;
-	ft_memset((char *)&a + 3, 128, 1);
-	printf("%d",a);
-}*/
+// int main ()
+// {
+// 	int a = 0;
+// 	ft_memset((char *)&a + 3, 128, 1);
+// 	printf("%d",a);
+// }
+
+// int main()
+// {
+// 	int a[] = {0};
+// 	ft_memset(a,5,2);
+// 	ft_memset(a,57,1);
+// 	printf("%d",a[0]);
+// }
+
+// #include<stdio.h>
+// int main ()
+// {
+// 	int a = 0;
+// 	ft_memset(&a, 128, 4);
+// 	ft_memset(&a, 0, 3);
+// 	printf("%d",a);
+// }

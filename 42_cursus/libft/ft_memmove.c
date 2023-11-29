@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:57:07 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/29 10:27:00 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/29 14:06:40 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,13 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*#include <stdio.h>
-int	main(void){
-	char p[]= "hello";
-	char a[] = "imane";
-	ft_memmove(p, a, 5);
-	printf("%s", p);
-}*/
+// #include <stdio.h>
+// #include <string.h>
+// int	main(void){
+// 	char p[]= "hello imane";
+// 	char p1[]= "hello imane"; 
+// 	ft_memmove(p + 3, p, 11);
+// 	memmove(p1 + 3, p1, 11);
+// 	printf("%s\n", p + 3);
+// 	printf("%s\n", p1 + 3);
+// }

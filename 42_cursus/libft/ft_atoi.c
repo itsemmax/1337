@@ -22,15 +22,11 @@ int	ft_atoi(const char *nptr)
 	sign = 1;
 	t = 0;
 	while (nptr[i] == ' ' || ((nptr[i] >= 9) && (nptr[i] <= 13)))
-	{
 		i++;
-	}
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
-		{
 			sign *= -1;
-		}
 		i++;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
@@ -40,9 +36,9 @@ int	ft_atoi(const char *nptr)
 	}
 	return (t * sign);
 }
-/*#include<stdio.h>
+// #include<stdio.h>
 
-int main()
-{
-	printf("%i\n",ft_atoi("    +6354135hrtu"));
-}*/
+// int main()
+// {
+// 	printf("%i\n",ft_atoi("    -2147483648"));
+// }

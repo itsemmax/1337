@@ -29,16 +29,28 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (p);
 }
 
-/*#include<stdio.h>
-int main()
-{
-	int *p;
-	p = (int *) ft_calloc(20 , sizeof(int));
-	for(int i; i = 0;i++)
-	{
-		printf("%ls//",p);
-		
-	}
-	free(p);
-	printf("\n");
-}*/
+// #include<stdio.h>
+// int main()
+// {
+// 	int *p;
+// 	p = (int *) ft_calloc(20 , sizeof(int));
+// 	for(int i = 0; i < 20 ;i++)
+// 	{
+// 		printf("%d",p[i]);		
+// 	}
+// 	free(p);
+// 	printf("\n");
+// }
+
+// #include<stdio.h>
+// int main()
+// {
+// 	char *p;
+// 	p = (char *) ft_calloc(20 , sizeof(char));
+// 	for(int i = 0; i < 20 ;i++)
+// 	{
+// 		printf("%c",p[i] + 48);		
+// 	}
+// 	free(p);
+// 	printf("\n");
+// }

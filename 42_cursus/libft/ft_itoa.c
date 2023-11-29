@@ -6,13 +6,13 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:51:30 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/29 08:40:13 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/29 13:43:00 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	ft_countdigit(long nb)
+static int	ft_countdigit(long nb)
 {
 	int	count;
 
@@ -30,7 +30,7 @@ int	ft_countdigit(long nb)
 	return (count);
 }
 
-char	*ft_nb_is_zero(char *p)
+static char	*ft_nb_is_zero(char *p)
 {
 	p = (char *)malloc(2 * sizeof(char));
 	if (!p)
@@ -71,8 +71,8 @@ char	*ft_itoa(int n)
 	return (p);
 }
 
-/*#include<stdio.h>
-int main()
-{
-	printf("%s",ft_itoa(-123763489));
-}*/
+// #include<stdio.h>
+// int main()
+// {
+// 	printf("%s",ft_itoa(0));
+// }
