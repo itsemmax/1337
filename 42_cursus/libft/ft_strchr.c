@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:16:30 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/27 18:16:02 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/29 08:25:30 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,12 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
+/*#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char tab[] = "rwghrlkkg";
+	int b = '\0';
+	printf("%s\n",ft_strchr(tab,b));
+	printf("%s\n",strchr(tab,b));
+}*/

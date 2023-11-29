@@ -34,5 +34,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 int main()
 {
 	char tab[] = "hello world";
-	printf("%s",(char *) memchr(tab,'l',4));
+	printf("%s",(char *) ft_memchr(tab,'\0',4));
+	printf("%s",(char *) memchr(tab,'\0',4));
 }*/

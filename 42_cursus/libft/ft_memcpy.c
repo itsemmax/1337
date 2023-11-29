@@ -48,3 +48,10 @@ int main(){
 	printf("%s\n",s);
 	printf("%s\n",a);
 }*/
+/*int main()
+{
+	char tab[] = "hello";
+	char *tab1;
+	printf("%s",(char *)ft_memcpy(tab1,tab,3));
+
+}*/

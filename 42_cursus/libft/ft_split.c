@@ -6,13 +6,13 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:51:01 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/20 17:51:01 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/29 10:23:42 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_word(char *s, char c)
+static int	count_word(char *s, char c)
 {
 	int	i;
 	int	count;
@@ -31,7 +31,7 @@ int	count_word(char *s, char c)
 	return (count);
 }
 
-void	ft_strncpy(char *dst, char *src, int c)
+static void	ft_strncpy(char *dst, char *src, int c)
 {
 	int	i;
 
@@ -44,7 +44,7 @@ void	ft_strncpy(char *dst, char *src, int c)
 	dst[i] = '\0';
 }
 
-void	ft_free(char **p, int a)
+void	*ft_free(char **p, int a)
 {
 	int	i;
 
@@ -55,32 +55,16 @@ void	ft_free(char **p, int a)
 		i++;
 	}
 	free(p);
+	return (NULL);
 }
 
-char	**ft_allocate(int c2)
+void	*rempli(char *s, char c, char **p, int count)
 {
-	char	**p;
+	int	j;
+	int	i;
 
-	p = (char **)malloc(sizeof(char *) * (c2 + 1));
-	if (!p)
-	{
-		return (NULL);
-	}
-	return (p);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		i;
-	int		j;
-	int		count;
-	char	**p;
-
-	i = -1;
-	count = count_word((char *)s, c);
-	if (!(p = ft_allocate(count)))
-		return (NULL);
-	while (++i < count)
+	i = 0;
+	while (i < count)
 	{
 		while (*s == c)
 			s++;
@@ -92,25 +76,38 @@ char	**ft_split(char const *s, char c)
 		}
 		p[i] = (char *)malloc(sizeof(char) * (j + 1));
 		if (!p[i])
-			ft_free(p, i);
+			return (ft_free(p, i));
 		ft_strncpy(p[i], (char *)(s - j), j);
+		i++;
 	}
 	p[i] = NULL;
 	return (p);
 }
+
+char	**ft_split(char const *s, char c)
+{
+	int		count;
+	char	**p;
+
+	count = count_word((char *)s, c);
+	p = (char **)malloc(sizeof(char *) * (count + 1));
+	if (!p)
+		return (NULL);
+	return (rempli((char *)s, c, p, count));
+}
 // #include <stdio.h>
 // int main()
 // {
-// 	int i = 0;
+//  int i = 0;
 
-// 	char *p = " hello       world      imane ";
-// 	char c = ' ';
-// 	char **a = ft_split(p,c);
-// 	while(i < 3)
-// 	{
-// 		printf("%s",a[i]);
-// 		printf("\n");
-// 		i++;
-// 	}
-// 	free(a);
+//  char *p = " hello       world      imane ";
+//  char c = ' ';
+//  char **a = ft_split(p,c);
+//  while(i < 3)
+//  {
+//      printf("%s",a[i]);
+//      printf("\n");
+//      i++;
+//  }
+//  free(a);
 // }
