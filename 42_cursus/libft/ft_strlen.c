@@ -27,6 +27,7 @@ size_t	ft_strlen(const char *s)
 // #include<stdio.h>
 // int main ()
 // {
-// 	char *str = "hello";
+// 	char *str = "";
 // 	printf("%ld",ft_strlen(str));
+// 	printf("%ld",strlen(str));
 // }

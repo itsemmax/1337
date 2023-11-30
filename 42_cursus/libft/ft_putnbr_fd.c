@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:52:01 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/27 15:02:02 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:57:36 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putnbr_fd(int n, int fd)
 	unsigned int	nb;
 
 	nb = n;
+	if (fd < 0)
+		return ;
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);

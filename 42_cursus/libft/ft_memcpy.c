@@ -22,13 +22,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	d = (unsigned char *) dest;
 	s = (unsigned char *) src;
 	if (d == s)
-	{
 		return (dest);
-	}
 	if (!d && !s)
-	{
 		return (0);
-	}
 	while (i < n)
 	{
 		d[i] = s[i];
@@ -47,9 +43,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	printf("%s\n",s);
 	printf("%s\n",a);
 }*/
+// #include<string.h>
+// #include<stdio.h>
 // int main()
 // {
 // 	char tab[] = "hello";
-// 	char *s = malloc(10);
-// 	printf("%s",(char *)ft_memcpy(s,tab,3));
+// 	printf("%s\n",(char *)ft_memcpy(tab,tab,3));
+// 	printf("%s",(char *)memcpy(tab,tab,3));
 // }

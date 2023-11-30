@@ -29,11 +29,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-/*#include<stdio.h>
-#include<string.h>
-int main()
-{
-	char tab[] = "hello world";
-	printf("%s",(char *) ft_memchr(tab,'\0',4));
-	printf("%s",(char *) memchr(tab,'\0',4));
-}*/
+// #include<stdio.h>
+// #include<string.h>
+// int main()
+// {
+// 	char tab[] = "hello world";
+// 	printf("%s",(char *) ft_memchr(tab,'l',4));
+// 	printf("%s",(char *) memchr(tab,'l',4));
+// }

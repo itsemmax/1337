@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:04:02 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/29 10:39:28 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:22:04 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int	j;
 
 	i = 0;
+	if (!s1 || !set)
+		return (NULL);
 	j = ft_strlen(s1) - 1;
 	if (j < 0)
 		j++;

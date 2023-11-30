@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:51:57 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/29 09:14:06 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:57:22 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (!s || fd < 0)
-	{
 		return ;
-	}
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }

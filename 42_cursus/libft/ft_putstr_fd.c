@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:52:05 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/29 09:15:09 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:19:41 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	if (!s && fd < 0)
-	{
+	if (!s || fd < 0)
 		return ;
-	}
 	while (s[i])
 	{
 		ft_putchar_fd(s[i], fd);

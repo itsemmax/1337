@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:51:54 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/29 09:13:26 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:57:12 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
+	if (fd < 0)
+		return ;
 	write(fd, &c, 1);
 }
-
 // #include<stdio.h>
 // #include<fcntl.h>
 // int main()

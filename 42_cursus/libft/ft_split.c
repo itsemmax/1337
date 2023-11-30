@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:51:01 by ichaoub           #+#    #+#             */
-/*   Updated: 2023/11/29 11:01:08 by ichaoub          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:20:46 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ char	**ft_split(char const *s, char c)
 	int		count;
 	char	**p;
 
+	if (!s)
+		return (NULL);
 	count = count_word((char *)s, c);
 	p = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!p)
