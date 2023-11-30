@@ -19,11 +19,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	srclen;
 
 	i = 0;
-	if (!dst && dstsize == 0)
+	if (!dst && src && !dstsize)
 		return (ft_strlen(src));
 	destlen = ft_strlen(dst);
 	srclen = ft_strlen(src);
-	if (destlen >= dstsize || !dst)
+	if (destlen >= dstsize || !dstsize)
 		return (dstsize + srclen);
 	while (src[i] && destlen + i < dstsize - 1)
 	{
@@ -35,13 +35,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 }
 
 // #include<stdio.h>
-// #include<string.h>
 // int main()
 // {
 // 	char *tab = 0;
-// 	char *tab2 = NULL;
-// 	char tab3[] = "jhgx";
+// 	const char tab2[] = "hjg";
+// 	char *tab3 = NULL;
 // 	const char tab4[] = "chaoub";
-// 	printf("%ld------------\n",ft_strlcat(tab2,tab3,0));
-// 	//printf("%lu------------",strlcat(tab3,tab2,0));
+// 	printf("%ld------------",ft_strlcat(tab1,tab2,8));
+// 	printf("%ld------------%s",strlcat(tab,tab2,5));
 // }
