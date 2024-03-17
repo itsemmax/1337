@@ -35,9 +35,7 @@ char	*ft_get_line(char *left)
 		return (NULL);
 	while (left[i] && left[i] != '\n')
 		i++;
-	if (left[i] == '\n')
-		i++;
-	tmp = (char *)malloc((i + 1) * sizeof(char));
+	tmp = (char *)malloc((i + 2) * sizeof(char));
 	if (!tmp)
 		return (NULL);
 	i = 0;
@@ -89,7 +87,7 @@ char	*get_next_line(int fd)
 	static char	*left;
 	char		*str;
 
-	if (fd < 0 || BUFFER_SIZE < 0 || BUFFER_SIZE > 2147483647)
+	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483647)
 		return (NULL);
 	left = read_line(left, fd);
 	if (!left)
@@ -99,6 +97,42 @@ char	*get_next_line(int fd)
 	return (str);
 }
 
+// #include <stdio.h>
+// int main(void)
+// {
+// 	int fd;
+// 	char *str;
+// 	fd = open("emma.txt",O_RDONLY);
+// 	while((str = get_next_line(fd)) != NULL)
+// 	{
+// 		printf("%s",str);
+// 		free(str);
+// 	}
+// 	printf("%s",str);
+// 	close(fd);
+// 	return(0);
+// }
+// #include<stdio.h>
+
+// int	main(void)
+// {
+// 	int		fd;
+// 	char	*line;
+
+// 	fd = open("emma.txt", O_RDONLY);
+// 	if (fd == -1)
+// 	{
+// 		perror("Error opening file");
+// 		return (1);
+// 	}
+// 	while ((line = get_next_line(fd)) != NULL)
+// 	{
+// 		printf("Line read: %s\n", line);
+// 		free(line);
+// 	}
+// 	close(fd);
+// 	return (0);
+// }
 // #include<stdio.h>
 // int	main(void)
 // {
