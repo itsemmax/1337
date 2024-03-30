@@ -97,6 +97,19 @@ char	*get_next_line(int fd)
 	return (str);
 }
 
+#include <stdio.h>
+int main()
+{
+	int fd = open("get_next_line.c", O_RDONLY);
+
+	while(get_next_line(fd))
+	{
+		printf("%s", get_next_line(fd));
+	}
+	printf("%s", get_next_line(fd));
+	return 0;
+}
+
 // #include <stdio.h>
 // int main(void)
 // {

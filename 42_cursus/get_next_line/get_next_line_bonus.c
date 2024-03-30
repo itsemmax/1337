@@ -94,28 +94,3 @@ char	*get_next_line(int fd)
 	left[fd] = new_left(left[fd]);
 	return (str);
 }
-// #include<stdio.h>
-// int main(void)
-// {
-// 	int fd0;
-// 	int fd1;
-// 	char *str;
-// 	char *str2;
-// 	int i = 0;
-
-// 	fd0 = open("imane.txt",O_RDONLY);
-// 	fd1 = open("emma.txt", O_RDONLY);
-// 	str = get_next_line(fd0);
-// 	printf("%s",str);
-// 	free(str);
-// 	str2 = get_next_line(fd1);
-// 	printf("%s",str2);
-// 	free(str2);
-// 	str = get_next_line(fd0);
-// 	printf("%s",str);
-// 	free(str);
-// 	str2 = get_next_line(fd1);
-// 	printf("%s",str2);
-// 	free(str2);
-// 	return(0);
-// }
