@@ -22,9 +22,11 @@ int main(int argc, char **argv)
 	int i;
 
 	i = 0;
-	if(argc == 3)
+	if(argc == 3 && str_isdigit(argv[1]))
 	{
 		pid = ft_atoi(argv[1]);
+		if(pid <= 12)
+			ft_printf("WRONG PID, TRY AGAIN\n");
 		if (kill(pid, 0) == -1)
 		{
 			ft_printf("WRONG PID, TRY AGAIN\n");
@@ -37,8 +39,5 @@ int main(int argc, char **argv)
 		ft_send_bits(pid,'\n');
 	}
 	else
-	{
-		ft_printf("Error : wrong format\n");
-		ft_printf("try : ./client <PID> <MESSAGE>\n");
-	}
+		ft_printf("Error : wrong formatt,ry : ./client <PID> <MESSAGE\n");
 }
