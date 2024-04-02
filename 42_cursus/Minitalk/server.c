@@ -5,7 +5,7 @@ void	ft_handler(int signal)
 	static int bit;
 	static int t;
 
-	if(signal = SIGUSR2)
+	if(signal == SIGUSR1)
 		t |= 0x01 << bit;
 	bit++;
 	if(bit == 8)
@@ -24,6 +24,7 @@ int main()
 	ft_printf("pid :%i\n",pid);
 	signal(SIGUSR1,ft_handler);
 	signal(SIGUSR2,ft_handler);
-	pause();
+	while(1)
+		pause();
 	return(0);
 }
