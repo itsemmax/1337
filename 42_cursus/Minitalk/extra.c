@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   extra.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/02 13:45:33 by ichaoub           #+#    #+#             */
+/*   Updated: 2024/04/02 14:20:07 by ichaoub          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 int	ft_atoi(const char *nptr)
@@ -27,14 +39,14 @@ int	ft_atoi(const char *nptr)
 
 int	str_isdigit(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] >= 0 && str[i] <= 9)
-			return(1);
+		if (!(str[i] >= 0 && str[i] <= 9))
+			return (0);
 		i++;
 	}
-	return(0);
+	return (1);
 }
