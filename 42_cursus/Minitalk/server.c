@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:45:45 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/04/02 14:21:41 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/04/02 15:37:00 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_handler(int signal)
 	bit++;
 	if (bit == 8)
 	{
-		ft_printf("%c", t);
+		ft_putchar(t);
 		bit = 0;
 		t = 0;
 	}
@@ -33,7 +33,8 @@ int	main(void)
 	int	pid;
 
 	pid = getpid();
-	ft_printf("pid :%i\n", pid);
+	ft_putnbr(pid);
+	ft_putchar('\n');
 	signal(SIGUSR1, ft_handler);
 	signal(SIGUSR2, ft_handler);
 	while (1)

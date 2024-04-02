@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:45:33 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/04/02 14:20:07 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/04/02 15:25:11 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ void	ft_putnbr(int nb)
 	else
 	{
 		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
+		ft_putchar(n % 10 + '0');
 	}
 }

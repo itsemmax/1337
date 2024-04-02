@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:45:23 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/04/02 14:18:59 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/04/02 15:28:58 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	main(int argc, char **argv)
 		pid = ft_atoi(argv[1]);
 		if (kill (pid, 0) == -1)
 		{
-			ft_printf("WRONG PID, TRY AGAIN\n");
+			write(1,"WRONG PID, TRY AGAIN\n",21);
 		}
 		if (pid == 0)
 		{
-			ft_printf("WRONG PID, TRY AGAIN\n");
+			write(1,"WRONG PID, TRY AGAIN\n",21);
 			exit(-1);
 		}
 		while (argv[2][i])
@@ -54,5 +54,5 @@ int	main(int argc, char **argv)
 		ft_send_bits(pid, '\n');
 	}
 	else
-		ft_printf("Error : wrong formatt,try : ./client <PID> <MESSAGE\n");
+		write(1,"Error : wrong formatt,try : ./client <PID> <MESSAGE>\n",53);
 }
