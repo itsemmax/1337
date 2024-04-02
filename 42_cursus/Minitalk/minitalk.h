@@ -23,4 +23,6 @@ int		ft_atoi(const char *nptr);
 int		str_isdigit(char *str);
 void	ft_send_bits(int pid, char a);
 void	ft_handler(int signal);
+void	ft_putchar(char c);
+void	ft_putnbr(int nb);
 #endif
