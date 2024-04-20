@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:45:33 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/04/02 15:25:11 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/04/19 16:52:34 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,6 @@ int	ft_atoi(const char *nptr)
 	return (t * sign);
 }
 
-int	str_isdigit(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (!(str[i] >= 0 && str[i] <= 9))
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 void	ft_putchar(char c)
 {
