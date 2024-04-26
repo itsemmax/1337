@@ -1,28 +1,49 @@
 SERVER = server
 
+SRV_BNS = server_bonus
+
 CLIENT = client
 
-HEADER = minitalk.h
-
+CLT_BNS = client_bonus
 
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(CLIENT) $(SERVER) $(HEADER)
+YELLOW = \033[0;33m
 
-$(SERVER): server.c $(HEADER)
-	@gcc server.c extra.c -o $@
-	@echo $@ ----------------- ready -----------------
+RED = \033[0;31m
 
-$(CLIENT): client.c $(HEADER)
+GREEN = \033[0;32m
+
+all: $(CLIENT) $(SERVER)
+
+	@echo "$(GREEN) ------------enjoy----------"
+
+$(SERVER): server.c extra.c
+	@gcc $(CFLAGS) server.c extra.c -o $@
+	@echo "$(YELLOW)$@----------------- ready -----------------"
+
+$(CLIENT): client.c extra.c
 	@gcc $(CFLAGS) client.c extra.c -o $@
-	@echo $@ ----------------- ready -----------------
+	@echo "$(YELLOW)$@ ----------------- ready -----------------"
+
+bonus: $(SRV_BNS) $(CLT_BNS)
+
+	@echo "$(GREEN) ------------enjoy----------"
+
+$(CLT_BNS): client_bonus.c extra_bonus.c
+	@gcc $(CFLAGS) client_bonus.c extra_bonus.c -o $@
+	@echo "$(RED)$@ ----------------- ready -----------------"
+
+$(SRV_BNS): server_bonus.c extra_bonus.c
+	@gcc $(CFLAGS) server_bonus.c extra_bonus.c -o $@
+	@echo "$(RED)$@ ----------------- ready -----------------"
 
 clean:
-	rm -rf $(SERVER) $(CLIENT)
+	rm -rf $(SERVER) $(CLIENT) $(SRV_BNS) $(CLT_BNS)
 
 fclean: clean
-	rm -rf $(SERVER) $(CLIENT) Minitalk.a
+	rm -rf  Minitalk.a
 
-re: fclean all
+re: fclean all bonus
 
-.PHONY: all re clean fclean
+.PHONY: all re clean fclean bonus

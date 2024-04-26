@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:45:45 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/04/02 15:37:00 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/04/25 00:33:45 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int	main(void)
 	signal(SIGUSR1, ft_handler);
 	signal(SIGUSR2, ft_handler);
 	while (1)
-		pause();
+		;
 	return (0);
 }

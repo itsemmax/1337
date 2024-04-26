@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:45:33 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/04/19 16:52:34 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/04/26 18:00:00 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	ft_atoi(const char *nptr)
 	}
 	return (t * sign);
 }
-
 
 void	ft_putchar(char c)
 {
