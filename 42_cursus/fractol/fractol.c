@@ -18,11 +18,11 @@ int main()
     if(window == NULL)
     {
         mlx_destroy_window(mlx_connection,window);
-    	//mlx_destroy_display(mlx_connection);
+    	mlx_destroy_display(mlx_connection);
         free(mlx_connection);
     }
     mlx_loop(mlx_connection);
     mlx_destroy_window(mlx_connection,window);
-  // mlx_destroy_display(mlx_connection);
+    mlx_destroy_display(mlx_connection);
     free(mlx_connection);
 }
