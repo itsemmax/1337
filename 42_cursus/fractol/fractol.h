@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <X11/keysym.h>
-#define MALLOC_ERROR    1
+#include <stdio.h>
 #define WIDTH	800
 #define HEIGHT	800
 #define BLACK   0x000000
@@ -42,7 +42,7 @@ typedef struct s_fractal
 
 void    fractal_init(t_fractal   *fractal);
 void    fractal_render(t_fractal *fractal);
-void    handle_pixel(int x, int y, t_fractal *fractal);
+void    handle_pixel(double x, double y, t_fractal *fractal);
 double  map(double unscaled_num, double new_min, double new_max);
 
 
