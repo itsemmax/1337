@@ -33,6 +33,8 @@ typedef struct s_fractal
 	double	zy; // Imaginary part of the complex number z.
 	double	cx;  // real part of the complex constant c.
 	double	cy;  // Imaginary part of the complex constant c.
+	double	julia_cx;
+	double	julia_cy;
 	int		color;  // Current color value used for drawing.
 	double	zoom; // Zoom level for zooming in and out
 	char	*name;  // Name of the fractal type
@@ -40,10 +42,16 @@ typedef struct s_fractal
 	double	escape_value;
 }			t_fractal;
 
-void    fractal_init(t_fractal   *fractal);
-void    fractal_render(t_fractal *fractal);
-void    handle_pixel(double x, double y, t_fractal *fractal);
-double  map(double unscaled_num, double new_min, double new_max);
+void    	fractal_init(t_fractal   *fractal);
+void    data_init(t_fractal *fractal);
+void    	fractal_render(t_fractal *fractal);
+void    	draw_julia(double x, double y, t_fractal *fractal);
+void    	draw_mandelbrot(double x, double y, t_fractal *fractal);
+double  	map(double unscaled_num, double new_min, double new_max);
+int			check_arg(char *str);
+double    	ft_get_double(char *str);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+void    	get_value(int argc, char **argv, t_fractal *fractal);
 
 
 #endif

@@ -27,6 +27,7 @@ void    fractal_init(t_fractal   *fractal)
     }
     fractal->image_ptr = mlx_new_image(fractal->mlx_connection,
                                         WIDTH, HEIGHT);
+    if(fractal->image_ptr == NULL)
     {
         mlx_destroy_window(fractal->mlx_connection,fractal->mlx_window);
         mlx_destroy_display(fractal->mlx_connection);
@@ -36,6 +37,6 @@ void    fractal_init(t_fractal   *fractal)
     fractal->pixels_ptr = mlx_get_data_addr(fractal->image_ptr,
                                             &fractal->bpp,
                                             &fractal->line_len,
-                                            &fractal->endian);                          
-
+                                            &fractal->endian);
+    data_init(fractal);
 }

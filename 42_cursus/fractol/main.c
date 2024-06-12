@@ -1,6 +1,6 @@
 #include"fractol.h"
 
-static	int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
@@ -21,11 +21,11 @@ int	main(int argc,char **argv)
 		|| (argc == 4 && !ft_strncmp(argv[1],"julia",5))
 		|| (argc == 2 && !ft_strncmp(argv[1],"julia",5)))
 	{
-		fractal.name = argv[1];
+		get_value(argc, argv, &fractal);
+		data_init(&fractal);
 		fractal_init(&fractal);
 		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
-
 	}
 	else
 	{

@@ -16,7 +16,7 @@ z initially is (0,0)
 and c is the actual point
 */
 
-void    handle_pixel(double x, double y, t_fractal *fractal)
+void    draw_mandelbrot(double x, double y, t_fractal *fractal)
 {
     double temp;
     int i;
@@ -24,8 +24,8 @@ void    handle_pixel(double x, double y, t_fractal *fractal)
     i = 0;
     fractal->zx = 0.0;
     fractal->zy = 0.0;
-    fractal->cx = map(x, -2, 2);
-    fractal->cy = map(y, 2, -2);
+    fractal->cx = map(x, -2, 2) * fractal->zoom;
+    fractal->cy = map(y, 2, -2) * fractal->zoom;
     while(i < fractal->max_iterations)
     {
         temp = fractal->zx * fractal->zx - fractal->zy * fractal->zy
@@ -44,6 +44,34 @@ void    handle_pixel(double x, double y, t_fractal *fractal)
 
 }
 
+void    draw_julia(double x, double y, t_fractal *fractal)
+{
+    double temp;
+    int i;
+
+    i = 0;
+    fractal->zx = map(x, -2, +2);
+    fractal->zy = map(y, 2, -2);
+    fractal->cx = fractal->julia_cx;
+    fractal->cy = fractal->julia_cy;
+    while(i < fractal->max_iterations)
+    {
+        temp = fractal->zx * fractal->zx - fractal->zy * fractal->zy
+		    + fractal->cx;
+	    fractal->zy = 2. * fractal->zx * fractal->zy + fractal->cy;
+	    fractal->zx = temp;
+        if((fractal->zx * fractal->zx) + (fractal->zy * fractal->zy) > fractal->escape_value)
+        {
+            fractal->color = map(i, BLACK, WHITE);
+            put_pixel(fractal->x, fractal->y, fractal, fractal->color);
+            return;
+        }
+        put_pixel(fractal->x, fractal->y, fractal, RED);
+    }
+    i++;
+
+}
+
 void    fractal_render(t_fractal *fractal)
 {
     fractal->y = -1;
@@ -52,7 +80,12 @@ void    fractal_render(t_fractal *fractal)
         fractal->x = -1;
         while(++fractal->x < WIDTH)
         {
-            handle_pixel(fractal->x, fractal->y, fractal);
+            if(!ft_strncmp(fractal->name,"mandelbrot",10))
+                draw_mandelbrot(fractal->x, fractal->y, fractal);
+            else if(!ft_strncmp(fractal->name,"julia",5))
+                draw_julia(fractal->x, fractal->y, fractal);
         }
+        mlx_clear_window(fractal->mlx_connection,fractal->mlx_window);
+        mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window,fractal->image_ptr,0,0);
     }
 }
