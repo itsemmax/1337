@@ -1,17 +1,16 @@
 #include"fractol.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(char *s1, char *s2, int n)
 {
-	size_t	i;
-
-	i = 0;
-	if ((!s1 && !s2) || !n)
+	if (NULL == s1 || NULL == s2 || n <= 0)
 		return (0);
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
-		i++;
-	if (i == n)
-		return (0);
-	return ((unsigned char)s1[i] - (unsigned char) s2[i]);
+	while (*s1 == *s2 && n > 0 && *s1 != '\0')
+	{
+		++s1;
+		++s2;
+		--n;
+	}
+	return (*s1 - *s2);
 }
 
 int	main(int argc,char **argv)
@@ -21,6 +20,7 @@ int	main(int argc,char **argv)
 		|| (argc == 4 && !ft_strncmp(argv[1],"julia",5))
 		|| (argc == 2 && !ft_strncmp(argv[1],"julia",5)))
 	{
+		fractal.name = argv[1];
 		get_value(argc, argv, &fractal);
 		data_init(&fractal);
 		fractal_init(&fractal);
