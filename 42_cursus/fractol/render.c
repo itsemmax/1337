@@ -24,8 +24,8 @@ void    draw_mandelbrot(double x, double y, t_fractal *fractal)
     i = 0;
     fractal->zx = 0.0;
     fractal->zy = 0.0;
-    fractal->cx = map(x, -2, 2,WIDTH);
-    fractal->cy = map(y, 2, -2,HEIGHT);
+    fractal->cx = map(x, -2, 2,WIDTH) * fractal->zoom + fractal->shift_x;
+    fractal->cy = map(y, 2, -2,HEIGHT) * fractal->zoom + fractal->shift_y;
     while(i < fractal->max_iterations)
     {
         temp = fractal->zx * fractal->zx - fractal->zy * fractal->zy
@@ -34,7 +34,7 @@ void    draw_mandelbrot(double x, double y, t_fractal *fractal)
 	    fractal->zx = temp;
         if((fractal->zx * fractal->zx) + (fractal->zy * fractal->zy) > fractal->escape_value)
         {
-            fractal->color = map(i, PURPLE, WHITE, fractal->max_iterations);
+            fractal->color = map(i, BLACK, WHITE, fractal->max_iterations);
             put_pixel(fractal->x, fractal->y, fractal, fractal->color);
             return;
         }
@@ -45,16 +45,44 @@ void    draw_mandelbrot(double x, double y, t_fractal *fractal)
 
 }
 
+void    draw_burningship(double x, double y, t_fractal *fractal)
+{
+    double temp;
+    int i;
+
+    i = 0;
+    fractal->zx = 0.0;
+    fractal->zy = 0.0;
+    fractal->cx = map(x, -2, 2,WIDTH) * fractal->zoom + fractal->shift_x;
+    fractal->cy = map(y, 2, -2,HEIGHT) * fractal->zoom + fractal->shift_y;
+    while(i < fractal->max_iterations)
+    {
+        temp = fabs(fractal->zx * fractal->zx - fractal->zy * fractal->zy
+		    + fractal->cx);
+	    fractal->zy = fabs(2 * fractal->zx * fractal->zy + fractal->cy);
+	    fractal->zx = temp;
+        if((fractal->zx * fractal->zx) + (fractal->zy * fractal->zy) > fractal->escape_value)
+        {
+            fractal->color = map(i, BLACK, WHITE, fractal->max_iterations);
+            put_pixel(fractal->x, fractal->y, fractal, fractal->color);
+            return;
+        }
+    i++;
+    }
+
+            put_pixel(fractal->x, fractal->y, fractal, BLACK);
+}
+
 void    draw_julia(double x, double y, t_fractal *fractal)
 {
     double temp;
     int i;
 
     i = 0;
-    fractal->zx = map(x, -2, +2,WIDTH);
-    fractal->zy = map(y, 2, -2,HEIGHT);
-    fractal->cx = fractal->julia_cx;
-    fractal->cy = fractal->julia_cy;
+    fractal->zx = map(x, -2, +2,WIDTH) * fractal->zoom + fractal->shift_x;;
+    fractal->zy = map(y, 2, -2,HEIGHT) * fractal->zoom+ fractal->shift_y;;
+    fractal->cx = fractal->julia_cx ;
+    fractal->cy = fractal->julia_cy ;
     while(i < fractal->max_iterations)
     {
         temp = fractal->zx * fractal->zx - fractal->zy * fractal->zy
@@ -94,13 +122,14 @@ void    fractal_render(t_fractal *fractal)
                 draw_mandelbrot(fractal->x, fractal->y, fractal);
             else if(!ft_strncmp(fractal->name,"julia",5))
                 draw_julia(fractal->x, fractal->y, fractal);
+            else if(!ft_strncmp(fractal->name,"burningship",11))
+                draw_burningship(fractal->x,fractal->y, fractal);
             else
             {
                 write(1,"Available fractals: mandel, julia, ship",39);
                 exit_fractal(fractal);
             }
         }
-        // mlx_clear_window(fractal->mlx_connection,fractal->mlx_window);
          mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window,fractal->image_ptr,0,0);
     }
 }

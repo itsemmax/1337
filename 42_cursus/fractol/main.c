@@ -18,7 +18,8 @@ int	main(int argc,char **argv)
 	t_fractal fractal;
 	if((argc == 2 && !ft_strncmp(argv[1],"mandelbrot",10))
 		|| (argc == 4 && !ft_strncmp(argv[1],"julia",5))
-		|| (argc == 2 && !ft_strncmp(argv[1],"julia",5)))
+		|| (argc == 2 && !ft_strncmp(argv[1],"julia",5))
+		|| (argc == 2 && !ft_strncmp(argv[1],"burningship",11)))
 	{
 		fractal.name = argv[1];
 		get_value(argc, argv, &fractal);
@@ -29,7 +30,7 @@ int	main(int argc,char **argv)
 	}
 	else
 	{
-		write(2, "Error: wrong format. Try: ./fractol mandelbrot\n or ./fractol julia\n or ./fractol julia <x> <y>\n", 96);
+		write(2, "Error: wrong format. Try: ./fractol mandelbrot\n or ./fractol julia\n or ./fractol julia <x> <y>\n or ./fractol burningship\n", 122);
 		exit(EXIT_FAILURE);
 	}
 }
