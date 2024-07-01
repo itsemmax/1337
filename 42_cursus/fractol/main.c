@@ -1,4 +1,16 @@
-#include"fractol.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/01 20:22:18 by ichaoub           #+#    #+#             */
+/*   Updated: 2024/07/01 20:28:15 by ichaoub          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fractol.h"
 
 int	ft_strncmp(char *s1, char *s2, int n)
 {
@@ -13,13 +25,14 @@ int	ft_strncmp(char *s1, char *s2, int n)
 	return (*s1 - *s2);
 }
 
-int	main(int argc,char **argv)
+int	main(int argc, char **argv)
 {
-	t_fractal fractal;
-	if((argc == 2 && !ft_strncmp(argv[1],"mandelbrot",10))
-		|| (argc == 4 && !ft_strncmp(argv[1],"julia",5))
-		|| (argc == 2 && !ft_strncmp(argv[1],"julia",5))
-		|| (argc == 2 && !ft_strncmp(argv[1],"burningship",11)))
+	t_fractal	fractal;
+
+	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
+		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
+		|| (argc == 2 && !ft_strncmp(argv[1], "julia", 5))
+		|| (argc == 2 && !ft_strncmp(argv[1], "burningship", 11)))
 	{
 		fractal.name = argv[1];
 		get_value(argc, argv, &fractal);
@@ -30,7 +43,7 @@ int	main(int argc,char **argv)
 	}
 	else
 	{
-		write(2, "Error: wrong format. Try: ./fractol mandelbrot\n or ./fractol julia\n or ./fractol julia <x> <y>\n or ./fractol burningship\n", 122);
+		write(2, "./fractol mandelbrot\n or julia\n or burningship\n", 50);
 		exit(EXIT_FAILURE);
 	}
 }
