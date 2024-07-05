@@ -6,16 +6,13 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 20:38:17 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/07/01 21:22:54 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/07/05 15:48:09 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <stdio.h>
 
-/*
-[0,799] ----> [-2,2]/!\
-*/
 double	map(double unscaled_num, double new_min, double new_max, double old_max)
 {
 	double	old_min;

@@ -6,14 +6,12 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 21:09:07 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/07/01 21:24:32 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/07/05 15:53:00 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-/*
-*put a pixel in my image  buffer
-*/
+
 static void	put_pixel(int x, int y, t_fractal *fractal, int color)
 {
 	int	offset;
@@ -21,11 +19,6 @@ static void	put_pixel(int x, int y, t_fractal *fractal, int color)
 	offset = (y * fractal->line_len) + (x * fractal->bpp / 8);
 	*(unsigned int *)(fractal->pixels_ptr + offset) = color;
 }
-/*
-z = z^2 + c
-z initially is (0,0)
-and c is the actual point
-*/
 
 void	draw_mandelbrot(double x, double y, t_fractal *fractal)
 {
@@ -69,7 +62,7 @@ void	draw_burningship(double x, double y, t_fractal *fractal)
 	{
 		temp = fabs(fractal->zx * fractal->zx - fractal->zy * fractal->zy
 				+ fractal->cx);
-		fractal->zy = fabs(2 * fractal->zx * fractal->zy + fractal->cy);
+		fractal->zy = (fabs(2 * fractal->zx * fractal->zy + fractal->cy)) * -1;
 		fractal->zx = temp;
 		if ((fractal->zx * fractal->zx) + (fractal->zy * fractal->zy)
 			> fractal->escape_value)
@@ -127,7 +120,7 @@ void	fractal_render(t_fractal *fractal)
 				draw_burningship(fractal->x, fractal->y, fractal);
 			else
 			{
-				write(1, "Available fractals: mandel, julia, ship", 39);
+				write(2, "mandelbrot\n or julia\n or burningship\n", 40);
 				exit_fractal(fractal);
 			}
 		}
