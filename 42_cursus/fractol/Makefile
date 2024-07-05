@@ -6,7 +6,7 @@
 #    By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/18 14:50:48 by ichaoub           #+#    #+#              #
-#    Updated: 2024/07/01 21:32:47 by ichaoub          ###   ########.fr        #
+#    Updated: 2024/07/05 20:09:46 by ichaoub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ FILES = \
 
 OBJ = $(FILES:.c=.o)
 
-MLXLIB	= -lmlx -lXext -lX11 -lm -lz
+MLXLIB	= -lmlx -lXext -lX11
 
 
 all: $(NAME) 
