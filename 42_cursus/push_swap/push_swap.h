@@ -28,11 +28,12 @@ char	**new_str(char **str);
 int		ft_lstsize(t_stack *lst);
 t_stack	*ft_lstnew(int *content);
 t_stack	*ft_lstlast(t_stack *lst);
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 
 int		sa(t_stack **stack_a);
 int		sb(t_stack **stack_b);
-int		ss(t_stack *stack_a, t_stack *stack_b);
+int		ss(t_stack **stack_a, t_stack **stack_b);
 int		pa(t_stack **stack_a, t_stack **stack_b);
 int		pb(t_stack **stack_a, t_stack **stack_b);
 int		ra(t_stack **stack_a);

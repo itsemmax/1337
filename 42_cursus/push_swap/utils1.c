@@ -53,7 +53,7 @@ int		ft_atoi(const char *nptr)
 	return(res * sign);
 }
 
-int	check_double(char *str)
+int	check_double(char **str)
 {
 	int i;
 	int j;
