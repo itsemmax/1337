@@ -31,24 +31,35 @@ int	check_error(char **str)
 		return (0);
 	while (str[i] != NULL)
 	{
-		if (!is_int(str[i]) || !check_digits(str[i]) != 0)
+		if (!is_int(str[i]) || !check_digits(str[i]))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
+void	fill_stack(t_stack *a, char **str)
+{
+	int i;
+
+	i = 0;
+	while(str[i])
+	{
+		ft_lstadd_back(&a,ft_lstnew(ft_atoi(str[i])));
+		i++;
+	}
+}
 
 int main(int argc, char **argv)
 {
-	t_stack	stack_a;
-	t_stack stack_b
+	t_stack	*stack_a;
+	t_stack *stack_b;
 	char **str;
 
 	stack_a = NULL;
 	stack_b = NULL;
 
-	if(ac > 1)
+	if(argc > 1)
 	{
 		str = new_str(argv);
 		if(str == NULL || !check_error(str))
@@ -58,7 +69,12 @@ int main(int argc, char **argv)
 				free(str);
 			return(0);
 		}
-		//
+		fill_stack(stack_a, str);
+		while(stack_a)
+		{
+			printf("%d\n",stack_a->data);
+			stack_a = stack_a->next;
+		}
 	}
 	return(0);
 }

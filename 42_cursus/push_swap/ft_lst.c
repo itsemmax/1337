@@ -2,12 +2,12 @@
 
 int	ft_lstsize(t_stack *lst)
 {
-	t_stack head;
+	t_stack *head;
 	int i;
 
 	i = 0;
 	if(!lst)
-		return(NULL);
+		return(0);
 	head = lst;
 	while(head)
 	{
@@ -17,14 +17,14 @@ int	ft_lstsize(t_stack *lst)
 	return(i);
 }
 
-t_stack	*ft_lstnew(int *content)
+t_stack	*ft_lstnew(int content)
 {
 	t_stack	*node;
 
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if(!node)
 		return(NULL);
-	node->data = data;
+	node->data = content;
 	node->next = NULL;
 	return(node);
 }
@@ -38,7 +38,7 @@ t_stack	*ft_lstlast(t_stack *lst)
 	return(lst);
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (!lst || !new)
 		return ;

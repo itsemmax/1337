@@ -26,9 +26,9 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
 char	**new_str(char **str);
 int		ft_lstsize(t_stack *lst);
-t_stack	*ft_lstnew(int *content);
+t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack *lst);
-void	ft_lstadd_front(t_stack **lst, t_stack *new)
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 
 int		sa(t_stack **stack_a);

@@ -11,11 +11,12 @@ int check_digits(char *str)
 	}
 	while(str[i])
 	{
-		if(!(str[i] >= '0' && str[i] <= '9'))
-			return(0);
-		i++;
+		if(str[i] >= '0' && str[i] <= '9')
+			i++;
+		else
+			return (1);
 	}
-	return(1);
+	return (0);
 }
 
 int	is_int(char *s)
@@ -28,7 +29,7 @@ int	is_int(char *s)
 	return (1);
 }
 
-int		ft_atoi(const char *nptr)
+int		ft_atoi(const char *str)
 {
 	int i;
 	int sign;

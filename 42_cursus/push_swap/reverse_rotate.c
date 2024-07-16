@@ -2,11 +2,11 @@
 
 int		rra(t_stack **stack_a)
 {
-	t_stack	tmp;
-	t_stack	last;
+	t_stack	*tmp;
+	t_stack	*last;
 
 	last = *stack_a;
-	if(ft_lstsize(&stack_a) < 2)
+	if(ft_lstsize(*stack_a) < 2)
 		return(-1);
 	while(last->next->next != NULL)
 	{
@@ -20,11 +20,11 @@ int		rra(t_stack **stack_a)
 }
 int		rrb(t_stack **stack_b)
 {
-	t_stack	tmp;
-	t_stack	last;
+	t_stack	*tmp;
+	t_stack	*last;
 
 	last = *stack_b;
-	if(ft_lstsize(&stack_b) < 2)
+	if(ft_lstsize(*stack_b) < 2)
 		return(-1);
 	while(last->next->next != NULL)
 	{
@@ -38,7 +38,7 @@ int		rrb(t_stack **stack_b)
 }
 int		rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	if(ft_lstsize(&stack_a) < 2 || ft_lstsize(&stack_b) < 2)
+	if(ft_lstsize(*stack_a) < 2 || ft_lstsize(*stack_b) < 2)
 		return(-1);
 	rra(stack_a);
 	rrb(stack_b);
