@@ -1,4 +1,4 @@
-#ifndef	PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
 #include <stddef.h>
@@ -7,39 +7,45 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
-#include<stdio.h>
-
+#include <stdio.h>
 
 typedef struct s_stack
 {
-	int	data;
-	struct s_stack	*next;
-}t_stack;
+	int data;
+	struct s_stack *next;
+} t_stack;
 
-int		is_int(char *s);
-int		check_digits(char *str);
-long	int_check(long result);
-int		check_double(char **str);
-int		ft_strlen(const char *s);
-int		ft_atoi(const char *nptr);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	**ft_split(char const *s, char c);
-char	**new_str(char **str);
-int		ft_lstsize(t_stack *lst);
-t_stack	*ft_lstnew(int content);
-t_stack	*ft_lstlast(t_stack *lst);
-void	ft_lstadd_front(t_stack **lst, t_stack *new);
-void	ft_lstadd_back(t_stack **lst, t_stack *new);
+int is_int(char *s);
+int check_digits(char *str);
+int check_double(char **str);
+int ft_strlen(const char *s);
+long ft_atoi(char *str);
+int	check_sign(char *str);
+char *ft_strjoin(char const *s1, char const *s2);
+char **ft_split(char const *s, char c);
+int ft_lstsize(t_stack *lst);
+t_stack *ft_lstnew(int content);
+t_stack *ft_lstlast(t_stack *lst);
+void ft_lstadd_front(t_stack **lst, t_stack *new);
+void ft_lstadd_back(t_stack **lst, t_stack *new);
+char **new_str(char **str);
+int check_error_dig(char **str);
+void fill_stack(t_stack **a, char **str);
+int is_sorted(t_stack *a);
+void sort(t_stack **a, t_stack **b);
+void sort_2(t_stack **a);
+void sort_3(t_stack **a);
+void sort_5(t_stack **a, t_stack **b);
 
-int		sa(t_stack **stack_a);
-int		sb(t_stack **stack_b);
-int		ss(t_stack **stack_a, t_stack **stack_b);
-int		pa(t_stack **stack_a, t_stack **stack_b);
-int		pb(t_stack **stack_a, t_stack **stack_b);
-int		ra(t_stack **stack_a);
-int		rb(t_stack **stack_b);
-int		rr(t_stack **stack_a, t_stack **stack_b);
-int		rra(t_stack **stack_a);
-int		rrb(t_stack **stack_b);
-int		rrr(t_stack **stack_a, t_stack **stack_b);
+int sa(t_stack **stack_a);
+int sb(t_stack **stack_b);
+int ss(t_stack **stack_a, t_stack **stack_b);
+int pa(t_stack **stack_a, t_stack **stack_b);
+int pb(t_stack **stack_a, t_stack **stack_b);
+int ra(t_stack **stack_a);
+int rb(t_stack **stack_b);
+int rr(t_stack **stack_a, t_stack **stack_b);
+int rra(t_stack **stack_a);
+int rrb(t_stack **stack_b);
+int rrr(t_stack **stack_a, t_stack **stack_b);
 #endif

@@ -32,7 +32,7 @@ int		sb(t_stack **stack_b)
 
 int		ss(t_stack **stack_a, t_stack **stack_b)
 {
-	if(ft_lstsize(stack_a) < 2 || ft_lstsize(stack_b))
+	if(ft_lstsize(*stack_a) < 2 || ft_lstsize(*stack_b) < 2)
 		return(-1);
 	sa(stack_a);
 	sb(stack_b);

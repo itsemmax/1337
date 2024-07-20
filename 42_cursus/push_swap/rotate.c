@@ -12,7 +12,7 @@ int		ra(t_stack **stack_a)
 	*stack_a = head->next;
 	head->next = NULL;
 	last->next = head;
-	write(1,"ra\n",1);
+	write(1,"ra\n",3);
 }
 int		rb(t_stack **stack_b)
 {
@@ -26,7 +26,7 @@ int		rb(t_stack **stack_b)
 	*stack_b = head->next;
 	head->next = NULL;
 	last->next = head;
-	write(1,"rb\n",1);
+	write(1,"rb\n",3);
 }
 int		rr(t_stack **stack_a, t_stack **stack_b)
 {

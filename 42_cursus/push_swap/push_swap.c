@@ -1,15 +1,15 @@
-#include "push_swap.h" 
+#include "push_swap.h"
 
-char	**new_str(char **str)
+char **new_str(char **str)
 {
-	int		i;
-	char	*new;
-	char	**str1;
+	int i;
+	char *new;
+	char **str1;
 
 	i = 1;
-	new = 0;
-	if(str[i] == NULL)
-		return(NULL);
+	new = "";
+	if (str[i] == NULL)
+		return (NULL);
 	while (str[i])
 	{
 		new = ft_strjoin(new, str[i]);
@@ -22,59 +22,74 @@ char	**new_str(char **str)
 	return (str1);
 }
 
-int	check_error(char **str)
+int check_error_dig(char **str)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	if (check_double(str) != 0)
-		return (0);
 	while (str[i] != NULL)
 	{
-		if (!is_int(str[i]) || !check_digits(str[i]))
+		if (!is_int(str[i]) || !check_digits(str[i]) || !check_sign(str[i]))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-void	fill_stack(t_stack *a, char **str)
+void fill_stack(t_stack **a, char **str)
 {
 	int i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		ft_lstadd_back(&a,ft_lstnew(ft_atoi(str[i])));
+		ft_lstadd_back(a, ft_lstnew(ft_atoi(str[i])));
 		i++;
 	}
+}
+int is_sorted(t_stack *a)
+{
+	if (!a)
+		return (0);
+	while(a->next)
+	{
+		if(a->data > a->next->data)
+			return(0);
+		a = a->next;
+	}
+	return(1);
 }
 
 int main(int argc, char **argv)
 {
-	t_stack	*stack_a;
+	t_stack *stack_a;
 	t_stack *stack_b;
 	char **str;
 
 	stack_a = NULL;
 	stack_b = NULL;
 
-	if(argc > 1)
+	if (argc > 1)
 	{
 		str = new_str(argv);
-		if(str == NULL || !check_error(str))
+		if (str == NULL || !check_error_dig(str) || !check_double(str))
 		{
-			write(2,"Error\n",6);
-			if(str)
+			write(2, "Error\n", 6);
+			if (str)
 				free(str);
-			return(0);
+			return (0);
 		}
-		fill_stack(stack_a, str);
-		while(stack_a)
+		fill_stack(&stack_a, str);
+		if(!is_sorted(stack_a))
+			sort(&stack_a,&stack_b);
+		while (stack_a)
 		{
-			printf("%d\n",stack_a->data);
+			printf("%d\n", stack_a->data);
 			stack_a = stack_a->next;
 		}
+		free(stack_a);
+		free(stack_b);
+		return(0);
 	}
-	return(0);
+	return (0);
 }
