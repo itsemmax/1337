@@ -65,6 +65,7 @@ int main(int argc, char **argv)
 	t_stack *stack_a;
 	t_stack *stack_b;
 	char **str;
+	int *tab;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -77,18 +78,23 @@ int main(int argc, char **argv)
 			write(2, "Error\n", 6);
 			if (str)
 				free(str);
+				//free_str(str);
 			return (0);
 		}
+		tab = fill_tab(tab,str,split_len(str));
+		sorted_tab(tab);
 		fill_stack(&stack_a, str);
+		get_indice(stack_a,tab);
 		if(!is_sorted(stack_a))
-			sort(&stack_a,&stack_b);
-		while (stack_a)
+			sort(&stack_a,&stack_b,tab);
+		int j = 0;
+		while (stack_a && tab[j])
 		{
-			printf("%d\n", stack_a->data);
+			printf("%d = %d\n", tab[j], stack_a->indice);
 			stack_a = stack_a->next;
+			j++;
 		}
-		free(stack_a);
-		free(stack_b);
+		//free_stack(a,b);
 		return(0);
 	}
 	return (0);

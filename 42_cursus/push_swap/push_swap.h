@@ -12,6 +12,7 @@
 typedef struct s_stack
 {
 	int data;
+	int	indice;
 	struct s_stack *next;
 } t_stack;
 
@@ -32,10 +33,16 @@ char **new_str(char **str);
 int check_error_dig(char **str);
 void fill_stack(t_stack **a, char **str);
 int is_sorted(t_stack *a);
-void sort(t_stack **a, t_stack **b);
+void sort(t_stack **a, t_stack **b,int *t);
 void sort_2(t_stack **a);
 void sort_3(t_stack **a);
-void sort_5(t_stack **a, t_stack **b);
+void sort_4_5(t_stack **a, t_stack **b);
+int	get_min(t_stack *a);
+int	ft_pos(t_stack *a,int min);
+int	*fill_tab(int *tab,char **str,int size);
+void	sorted_tab(int *tab);
+int	split_len(char **str);
+void	get_indice(t_stack *a, int *t);
 
 int sa(t_stack **stack_a);
 int sb(t_stack **stack_b);

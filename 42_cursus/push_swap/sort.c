@@ -28,13 +28,33 @@ void sort_3(t_stack **a)
 		rra(a);
 	}
 }
-// void	sort_5(t_stack **a,t_stack **b);
-void sort(t_stack **a, t_stack **b)
+void	sort_4_5(t_stack **a,t_stack **b)
+{
+	int min;
+	int pos;
+
+	while(ft_lstsize(*a) > 3)
+	{
+		min = get_min(*a);
+		while(ft_pos(*a,min))
+		{
+		if(ft_pos(*a,min) < ft_lstsize(*a) / 2)
+			ra(a);
+		else
+			rra(a);
+		}
+	pb(a,b);
+	}
+	sort_3(a);
+	while(ft_lstsize(*b) > 0)
+		pa(a,b);
+}
+void sort(t_stack **a, t_stack **b, int *t)
 {
 	if (ft_lstsize(*a) == 2)
 		sort_2(a);
 	if (ft_lstsize(*a) == 3)
 		sort_3(a);
-	// if(ft_lstsize(*a) == 5)
-	// 	sort_5(a,b);
+	if(ft_lstsize(*a) == 4 || ft_lstsize(*a) == 5)
+		sort_4_5(a,b);
 }
