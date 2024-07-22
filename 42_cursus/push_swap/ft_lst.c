@@ -1,20 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lst.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/22 11:11:34 by ichaoub           #+#    #+#             */
+/*   Updated: 2024/07/22 11:11:50 by ichaoub          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_lstsize(t_stack *lst)
 {
-	t_stack *head;
-	int i;
+	t_stack	*head;
+	int		i;
 
 	i = 0;
-	if(!lst)
-		return(0);
+	if (!lst)
+		return (0);
 	head = lst;
-	while(head)
+	while (head)
 	{
 		head = head->next;
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 t_stack	*ft_lstnew(int content)
@@ -22,20 +34,20 @@ t_stack	*ft_lstnew(int content)
 	t_stack	*node;
 
 	node = (t_stack *)malloc(sizeof(t_stack));
-	if(!node)
-		return(NULL);
+	if (!node)
+		return (NULL);
 	node->data = content;
 	node->next = NULL;
-	return(node);
+	return (node);
 }
 
 t_stack	*ft_lstlast(t_stack *lst)
 {
-	if(!lst)
-		return(NULL);
-	while(lst->next)
+	if (!lst)
+		return (NULL);
+	while (lst->next)
 		lst = lst->next;
-	return(lst);
+	return (lst);
 }
 
 void	ft_lstadd_front(t_stack **lst, t_stack *new)

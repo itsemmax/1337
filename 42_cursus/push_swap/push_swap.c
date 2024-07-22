@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/22 11:19:21 by ichaoub           #+#    #+#             */
+/*   Updated: 2024/07/22 11:19:33 by ichaoub          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-char **new_str(char **str)
+char	**new_str(char **str)
 {
-	int i;
-	char *new;
-	char **str1;
+	int		i;
+	char	*new;
+	char	**str1;
 
 	i = 1;
-	new = "";
+	new = ft_strdup("");
 	if (str[i] == NULL)
-		return (NULL);
+		return (free(str), NULL);
 	while (str[i])
 	{
 		new = ft_strjoin(new, str[i]);
@@ -22,9 +34,9 @@ char **new_str(char **str)
 	return (str1);
 }
 
-int check_error_dig(char **str)
+int	check_error_dig(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != NULL)
@@ -36,9 +48,9 @@ int check_error_dig(char **str)
 	return (1);
 }
 
-void fill_stack(t_stack **a, char **str)
+void	fill_stack(t_stack **a, char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -47,55 +59,50 @@ void fill_stack(t_stack **a, char **str)
 		i++;
 	}
 }
-int is_sorted(t_stack *a)
+
+int	is_sorted(t_stack *a)
 {
 	if (!a)
 		return (0);
-	while(a->next)
+	while (a->next)
 	{
-		if(a->data > a->next->data)
-			return(0);
+		if (a->data > a->next->data)
+			return (0);
 		a = a->next;
 	}
-	return(1);
+	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_stack *stack_a;
-	t_stack *stack_b;
-	char **str;
-	int *tab;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	char	**str;
+	int		*tab;
 
 	stack_a = NULL;
 	stack_b = NULL;
-
+	tab = NULL;
 	if (argc > 1)
 	{
 		str = new_str(argv);
 		if (str == NULL || !check_error_dig(str) || !check_double(str))
-		{
-			write(2, "Error\n", 6);
-			if (str)
-				free(str);
-				//free_str(str);
-			return (0);
-		}
-		tab = fill_tab(tab,str,split_len(str));
-		sorted_tab(tab);
+			handle_error(str);
+		tab = fill_tab(tab, str, split_len(str));
 		fill_stack(&stack_a, str);
-		get_indice(stack_a,tab);
-		if(!is_sorted(stack_a))
-			sort(&stack_a,&stack_b,tab);
-		int j = 0;
-		while (stack_a && tab[j])
-		{
-			printf("%d = %d\n", tab[j], stack_a->indice);
-			stack_a = stack_a->next;
-			j++;
-		}
-		//free_stack(a,b);
-		return(0);
+		if (!is_sorted(stack_a))
+			sort(&stack_a, &stack_b, tab);
+		free_array(str);
+		free(tab);
+		free_stacks(stack_a, stack_b);
 	}
 	return (0);
 }
+
+// int j = 0;
+// while (stack_a && tab[j])
+// 		{
+// 			printf("%d = %d\n", tab[j], stack_a->indice);
+// 			stack_a = stack_a->next;
+// 			j++;
+// 		}

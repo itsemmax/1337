@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils1.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/22 11:25:02 by ichaoub           #+#    #+#             */
+/*   Updated: 2024/07/22 11:25:22 by ichaoub          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int check_digits(char *str)
+int	check_digits(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
@@ -19,27 +31,28 @@ int check_digits(char *str)
 	return (1);
 }
 
-int is_int(char *s)
+int	is_int(char *s)
 {
-	long n;
+	long	n;
 
 	n = ft_atoi(s);
 	if (n > 2147483647 || n < -2147483648)
 		return (0);
 	return (1);
 }
-int check_sign(char *str)
+
+int	check_sign(char *str)
 {
 	if ((str[0] == '-' || str[0] == '+') && !str[1])
-		return 0;
-	return 1;
+		return (0);
+	return (1);
 }
 
-long ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
-	int i;
-	int sign;
-	long res;
+	int		i;
+	int		sign;
+	long	res;
 
 	i = 0;
 	sign = 1;
@@ -60,10 +73,10 @@ long ft_atoi(char *str)
 	return (res * sign);
 }
 
-int check_double(char **str)
+int	check_double(char **str)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (str[i])
