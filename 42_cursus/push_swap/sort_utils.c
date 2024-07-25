@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:22:40 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/07/22 11:22:51 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/07/23 04:18:59 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	get_min(t_stack *a)
 	return (min);
 }
 
-int	ft_pos(t_stack *a, int min)
+int	ft_pos(t_stack *a, int num)
 {
 	int	pos;
 
 	pos = 0;
-	while (a->data != min)
+	while (a->data != num)
 	{
 		pos++;
 		a = a->next;

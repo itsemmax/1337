@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:19:21 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/07/22 11:19:33 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/07/25 16:55:14 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	**new_str(char **str)
 	i = 1;
 	new = ft_strdup("");
 	if (str[i] == NULL)
-		return (free(str), NULL);
+		return (NULL);
 	while (str[i])
 	{
 		new = ft_strjoin(new, str[i]);
@@ -83,6 +83,8 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	tab = NULL;
+	if (argc == 1)
+		exit(1);
 	if (argc > 1)
 	{
 		str = new_str(argv);
@@ -102,7 +104,7 @@ int	main(int argc, char **argv)
 // int j = 0;
 // while (stack_a && tab[j])
 // 		{
-// 			printf("%d = %d\n", tab[j], stack_a->indice);
+// 			printf("%d = %d\n", tab[j], stack_a->index);
 // 			stack_a = stack_a->next;
 // 			j++;
 // 		}

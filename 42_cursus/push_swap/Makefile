@@ -1,9 +1,9 @@
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 NAME = push_swap
 
-FILES = push_swap.c ft_lst.c ft_Split.c push.c reverse_rotate.c \
+FILES = push_swap.c ft_lst.c ft_Split.c push.c reverse_rotate.c big_sort.c\
         rotate.c sort_utils.c sort.c swap.c tab.c utils.c utils1.c free.c \
 
 OBJ = $(FILES:.c=.o)

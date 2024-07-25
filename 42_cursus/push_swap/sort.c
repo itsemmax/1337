@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:23:25 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/07/22 11:23:31 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/07/25 16:01:25 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,16 @@ void	sort_5(t_stack **a, t_stack **b)
 
 void	sort(t_stack **a, t_stack **b, int *t)
 {
-	(void)*t;
 	if (ft_lstsize(*a) == 2)
 		sort_2(a);
-	if (ft_lstsize(*a) == 3)
+	else if (ft_lstsize(*a) == 3)
 		sort_3(a);
-	if (ft_lstsize(*a) == 4)
+	else if (ft_lstsize(*a) == 4)
 		sort_4(a, b);
-	if (ft_lstsize(*a) == 5)
+	else if (ft_lstsize(*a) == 5)
 		sort_5(a, b);
+	else if (ft_lstsize(*a) <= 100)
+		big_sort(a, b, t, 15);
+	else if (ft_lstsize(*a) > 100)
+		big_sort(a, b, t, 30);
 }

@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:23:59 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/07/22 11:24:23 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/07/25 17:37:17 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ int	*fill_tab(int *tab, char **str, int size)
 	return (tab);
 }
 
-void	sorted_tab(int *tab)
+void	sorted_tab(int *tab, int x)
 {
 	int	i;
 	int	j;
 	int	t;
 
 	i = 0;
-	while (tab[i])
+	while (i < x)
 	{
 		j = i + 1;
-		while (tab[j])
+		while (j < x)
 		{
 			if (tab[i] > tab[j])
 			{
@@ -62,18 +62,18 @@ void	sorted_tab(int *tab)
 	}
 }
 
-void	get_indice(t_stack *a, int *t)
+void	get_index(t_stack *a, int *t, int size)
 {
 	int	i;
 
 	while (a)
 	{
 		i = 0;
-		while (t[i])
+		while (i < size)
 		{
 			if (t[i] == a->data)
 			{
-				a->indice = i;
+				a->index = i;
 				break ;
 			}
 			i++;
