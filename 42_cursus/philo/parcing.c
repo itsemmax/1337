@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parcing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 03:29:40 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/08/23 03:43:52 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/11/26 21:41:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	print_error(char *str)
 {
-	printf("%s\n",str);
+	printf(RED"%s\n"RST,str);
 	exit(1);	
 }
 
-int	ft_atoi(char *str)
+long	  ft_atoi(char *str)
 {
-	int i;
-	int res;
-	int sign;
+	int		i;
+	long	res;
+	int		sign;
 
 	i = 0;
 	sign = 1;
@@ -41,6 +41,8 @@ int	ft_atoi(char *str)
 	{
 		res = res * 10 + (str[i] - '0');
 		i++;
+		if(res > INT_MAX)
+			print_error("the number is out of range, the INT_MAX is the limit");
 	}
 	return(res * sign);
 }
@@ -71,13 +73,15 @@ void	parse_input(t_info *info,char **argv)
 	info->time_to_die = ft_atoi(argv[2]);
 	info->time_to_eat = ft_atoi(argv[3]);
 	info->time_to_sleep = ft_atoi(argv[4]);
-	if(info->time_to_die < 60
-		|| info->time_to_eat < 60
+	if(info->time_to_die < 60 || info->time_to_eat < 60
 		|| info->time_to_sleep < 60)
-			print_error("please enter the time more the 60 ms");
+			print_error("Time values must be at least 60 ms");
 	if(argv[5])
+	{
 		info->nbr_limit_meals = ft_atoi(argv[5]);
+		if(ft_atoi(argv[5]) == 0)
+			print_error("Number of times each philosopher must eat should be greater than 0 ");
+	}
 	else
 		info->nbr_limit_meals = -1;
-
 }

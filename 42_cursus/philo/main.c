@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 03:29:32 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/08/23 03:46:35 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/02 01:22:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int main(int argc, char **argv)
 {
 	int i;
 	t_info	info;
+	t_philo *philo;
 
+	philo = NULL;
 	i = 1;
 	if(argc == 5 || argc == 6)
 	{
@@ -28,11 +30,10 @@ int main(int argc, char **argv)
 			i++;
 		}
 		parse_input(&info,argv);
-		if(!data_init(&info))
+		if(!data_init(&info,philo))
 			return(0);
 		dinner_start(&info);
-		clear(&info);
 	}
 	else
-		print_error("please enter 4 or 5 args");
+		print_error("wrong input, please enter 4 or 5 args");
 }
