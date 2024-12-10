@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 03:29:49 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/10 15:44:44 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/10 16:45:13 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	philos_init(t_info *info)
 		info->philo[i].meals_counter = 0;
 		info->philo[i].info = info;
 		info->philo[i].is_eating = 0;
-		info->philo[i].r_fork = (i + 1) % info->philo_nbr;
-		info->philo[i].l_fork = i;
+		info->philo[i].r_fork = i;
+		info->philo[i].l_fork = (i + 1) % info->philo_nbr;
 		info->philo[i].last_meal_time = set_time();
 		i++;
 	}
