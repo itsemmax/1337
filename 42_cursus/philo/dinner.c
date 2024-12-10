@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:51:30 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/09 19:10:07 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/10 16:08:46 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*dinner_simulation(void *data)
 
 	philo = (t_philo *)data;
 	if (philo->id % 2 == 0)
-		s_sleep(1);
+		usleep(100);
 	while (!dead_check(philo))
 	{
 		is_eating(philo);
@@ -68,8 +68,6 @@ void	dinner_start(t_info *info)
 	i = 0;
 	philo = info->philo;
 	info->start_simulation = set_time();
-	if (pthread_create(&sup_thread, NULL, &sup, info))
-		clear_all("Thread creation error", info, info->philo);
 	while (i < info->philo_nbr)
 	{
 		if (pthread_create(&philo[i].thread, NULL, dinner_simulation,
@@ -78,6 +76,8 @@ void	dinner_start(t_info *info)
 		usleep(100);
 		i++;
 	}
+	if (pthread_create(&sup_thread, NULL, &sup, info))
+		clear_all("Thread creation error", info, info->philo);
 	if (pthread_join(sup_thread, NULL))
 		clear_all("Thread join error", info, info->philo);
 	i = -1;

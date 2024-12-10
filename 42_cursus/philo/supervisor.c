@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:59:46 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/09 19:15:06 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/10 16:09:16 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ int	end_simulation_check(t_info *info, int i)
 	while (i < info->philo_nbr)
 	{
 		pthread_mutex_lock(&info->philo[i].mtx);
-		if ((long)set_time()
-			- info->philo[i].last_meal_time >= info->time_to_die
+		if ((long)set_time() - info->philo[i].last_meal_time > info->time_to_die
 			&& info->philo[i].is_eating == 0)
 		{
 			pthread_mutex_lock(&info->eat_mutex);
@@ -76,6 +75,7 @@ void	*sup(void *p)
 		if (end_simulation_check(info, 0) != 0
 			|| check_max_meals_ate(info) != 0)
 			break ;
+		usleep(100);
 	}
 	return ((void *)1);
 }

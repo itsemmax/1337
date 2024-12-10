@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 03:29:32 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/09 18:59:25 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/09 21:20:27 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		print_error("wrong input, please enter 4 or 5 args");
+	return (0);
 }
