@@ -1,9 +1,9 @@
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror
 NAME = philo
 
-FILES = main.c init.c dinner.c one_philo.c parcing.c utils.c supervisor.c\
+FILES = main.c init.c dinner.c one_philo.c parcing.c utils.c supervisor.c actions.c\
 
 OBJ = $(FILES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 03:29:40 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/09 19:14:40 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/10 16:39:04 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	parse_input(t_info *info, char **argv)
 	{
 		info->nbr_limit_meals = ft_atoi(argv[5]);
 		if (ft_atoi(argv[5]) == 0)
-			print_error("The time value must be greater than 0.");
+			print_error("The max meals value must be greater than 0.");
 	}
 	else
 		info->nbr_limit_meals = -1;
