@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:24:50 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/17 01:21:18 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/17 01:39:49 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,8 @@ void	lock_forks(t_philo *philo, int r_fork, int l_fork)
 	printf(GREEN "%lu philo %d 🍴 has taken a fork\n" RST, set_time()
 		- philo->info->start_simulation, philo->id);
 	pthread_mutex_unlock(&philo->info->writing_mutex);
-	if(philo->info->philo_nbr == 1)
-	{
-		one_philo(philo->info,r_fork);
-		return ;
-	}
+	if (philo->info->philo_nbr == 1)
+		return ((void )one_philo(philo->info, r_fork));
 	pthread_mutex_lock(&philo->info->forks_mutex[l_fork]);
 	if (dead_check(philo))
 	{
@@ -94,7 +91,7 @@ void	is_sleeping(t_philo *philo)
 	printf("%lu philo %d 😴 is sleeping\n", set_time()
 		- philo->info->start_simulation, philo->id);
 	pthread_mutex_unlock(&philo->info->writing_mutex);
-	s_sleep(philo->info->time_to_sleep,philo);
+	s_sleep(philo->info->time_to_sleep, philo);
 	if (philo->info->philo_nbr % 2 == 1)
 		usleep(300);
 }

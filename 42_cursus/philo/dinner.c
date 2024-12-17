@@ -29,7 +29,6 @@ void	*dinner_simulation(void *data)
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
-
 	if (philo->info->philo_nbr % 2 == 0)
 	{
 		if (philo->id % 2 == 0)

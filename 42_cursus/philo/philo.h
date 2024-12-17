@@ -64,7 +64,7 @@ void				dinner_start(t_info *info);
 int					philos_init(t_info *info);
 int					mutex_init(t_info *info);
 size_t				set_time(void);
-void				s_sleep(size_t time,t_philo *philo);
+void				s_sleep(size_t time, t_philo *philo);
 void				lock_forks(t_philo *philo, int r_fork, int l_fork);
 void				is_eating(t_philo *philo);
 void				start_eating(t_philo *philo);

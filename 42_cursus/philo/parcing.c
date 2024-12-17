@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 03:29:40 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/17 00:31:10 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/17 01:36:10 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ int	check_digits(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A'
-				&& str[i] <= 'Z') || (str[i] >= 33 && str[i] <= 47)
-				|| (str[i] >= 58 && str[i] <= 64) || (str[i] >= 123 && str[i] <= 126))
+		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')
+			|| (str[i] >= 33 && str[i] <= 47) || (str[i] >= 58 && str[i] <= 64)
+			|| (str[i] >= 123 && str[i] <= 126))
 			return (0);
 		i++;
 	}
@@ -77,9 +77,6 @@ void	parse_input(t_info *info, char **argv)
 	info->time_to_die = ft_atoi(argv[2]);
 	info->time_to_eat = ft_atoi(argv[3]);
 	info->time_to_sleep = ft_atoi(argv[4]);
-	// if (info->time_to_die < 60 || info->time_to_eat < 60
-	// 	|| info->time_to_sleep < 60)
-	// 	print_error("Time values must be at least 60 ms");
 	if (argv[5])
 	{
 		info->nbr_limit_meals = ft_atoi(argv[5]);

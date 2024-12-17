@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=leak
 NAME = philo
 
 FILES = main.c init.c dinner.c one_philo.c parcing.c utils.c supervisor.c actions.c\
