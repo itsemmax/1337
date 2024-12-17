@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 03:29:32 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/09 21:20:27 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/16 23:36:01 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 		{
 			if ((ft_atoi(argv[1]) == 0 || ft_atoi(argv[1]) > 200)
 				|| !check_sign(ft_atoi(argv[i])) || !check_digits(argv[i]))
-				print_error("urs args is not valid");
+				print_error("yours args is not valid");
 			i++;
 		}
 		parse_input(&info, argv);

@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:51:30 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/10 16:08:46 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/17 01:18:11 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,20 @@ void	*dinner_simulation(void *data)
 	t_philo	*philo;
 
 	philo = (t_philo *)data;
-	if (philo->id % 2 == 0)
-		usleep(100);
+
+	if (philo->info->philo_nbr % 2 == 0)
+	{
+		if (philo->id % 2 == 0)
+			usleep(300);
+	}
 	while (!dead_check(philo))
 	{
 		is_eating(philo);
+		if (dead_check(philo))
+			break ;
 		is_sleeping(philo);
+		if (dead_check(philo))
+			break ;
 		is_thinking(philo);
 	}
 	return ((void *)1);
@@ -73,17 +81,15 @@ void	dinner_start(t_info *info)
 		if (pthread_create(&philo[i].thread, NULL, dinner_simulation,
 				&info->philo[i]))
 			clear_all("Thread creation error", info, info->philo);
-		usleep(100);
+		if (info->philo_nbr % 2 == 1)
+			usleep(5);
 		i++;
 	}
 	if (pthread_create(&sup_thread, NULL, &sup, info))
 		clear_all("Thread creation error", info, info->philo);
-	if (pthread_join(sup_thread, NULL))
-		clear_all("Thread join error", info, info->philo);
+	pthread_join(sup_thread, NULL);
 	i = -1;
 	while (++i < info->philo_nbr)
-	{
-		if (pthread_join(philo[i].thread, NULL))
-			clear_all("Thread join error", info, info->philo);
-	}
+		pthread_join(philo[i].thread, NULL);
+	clear_all("", info, info->philo);
 }

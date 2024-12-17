@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:24:50 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/10 16:35:16 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/17 01:21:18 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ void	lock_forks(t_philo *philo, int r_fork, int l_fork)
 	printf(GREEN "%lu philo %d 🍴 has taken a fork\n" RST, set_time()
 		- philo->info->start_simulation, philo->id);
 	pthread_mutex_unlock(&philo->info->writing_mutex);
+	if(philo->info->philo_nbr == 1)
+	{
+		one_philo(philo->info,r_fork);
+		return ;
+	}
 	pthread_mutex_lock(&philo->info->forks_mutex[l_fork]);
 	if (dead_check(philo))
 	{
@@ -57,7 +62,7 @@ void	start_eating(t_philo *philo)
 	printf(YELLOW "%lu philo %d 😋 is eating\n" RST, set_time()
 		- philo->info->start_simulation, philo->id);
 	pthread_mutex_unlock(&philo->info->writing_mutex);
-	s_sleep(philo->info->time_to_eat);
+	s_sleep(philo->info->time_to_eat, philo);
 }
 
 void	is_eating(t_philo *philo)
@@ -89,7 +94,7 @@ void	is_sleeping(t_philo *philo)
 	printf("%lu philo %d 😴 is sleeping\n", set_time()
 		- philo->info->start_simulation, philo->id);
 	pthread_mutex_unlock(&philo->info->writing_mutex);
-	s_sleep(philo->info->time_to_sleep);
+	s_sleep(philo->info->time_to_sleep,philo);
 	if (philo->info->philo_nbr % 2 == 1)
-		usleep(500);
+		usleep(300);
 }

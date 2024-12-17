@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:59:51 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/10 16:35:00 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/17 01:00:14 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,17 @@ size_t	set_time(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-void	s_sleep(size_t time)
+void	s_sleep(size_t time, t_philo *philo)
 {
 	size_t	start;
 
 	start = set_time();
 	while ((set_time() - start) < time)
+	{
 		usleep(100);
+		if (dead_check(philo))
+			break ;
+	}
 }
 
 void	is_thinking(t_philo *philo)

@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 03:29:55 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/10 16:31:57 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/17 01:20:45 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void				dinner_start(t_info *info);
 int					philos_init(t_info *info);
 int					mutex_init(t_info *info);
 size_t				set_time(void);
-void				s_sleep(size_t time);
+void				s_sleep(size_t time,t_philo *philo);
 void				lock_forks(t_philo *philo, int r_fork, int l_fork);
 void				is_eating(t_philo *philo);
 void				start_eating(t_philo *philo);
@@ -74,7 +74,7 @@ void				is_thinking(t_philo *philo);
 int					check_max_meals_ate(t_info *info);
 int					end_simulation_check(t_info *info, int i);
 void				*sup(void *p);
-int					one_philo(t_info *info);
+int					one_philo(t_info *info, int r_fork);
 int					dead_check(t_philo *philo);
 void				*dinner_simulation(void *data);
 void				clear_all(char *str, t_info *info, t_philo *philo);

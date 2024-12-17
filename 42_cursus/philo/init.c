@@ -6,7 +6,7 @@
 /*   By: ichaoub <ichaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 03:29:49 by ichaoub           #+#    #+#             */
-/*   Updated: 2024/12/10 16:59:55 by ichaoub          ###   ########.fr       */
+/*   Updated: 2024/12/17 01:21:41 by ichaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,6 @@ int	data_init(t_info *info, t_philo *philo)
 	info->philo = malloc(sizeof(t_philo) * info->philo_nbr);
 	if (!info->philo)
 		print_error("malloc error");
-	if (info->philo_nbr == 1)
-	{
-		one_philo(info);
-		free(info->philo);
-		return (0);
-	}
 	if (!philos_init(info))
 		return (0);
 	info->forks_mutex = malloc(sizeof(pthread_mutex_t) * info->philo_nbr);
