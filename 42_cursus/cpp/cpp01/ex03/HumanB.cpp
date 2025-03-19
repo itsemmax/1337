@@ -1,13 +1,11 @@
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name)
-{
-	this->name = name;
-}
+HumanB::HumanB(std::string name) : name(name), weapon(NULL) {}
+
 void HumanB::attack()
 {
-	if(weapon->getType() != "")
+	if(weapon)
 		std::cout << name << " attacks with their " << weapon->getType() << "\n";
 	else
 		std::cout << name << " don't have a weapon to attack \n";
