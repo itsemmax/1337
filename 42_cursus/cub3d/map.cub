@@ -1,10 +1,8 @@
-NO ./textures/wall/LAB_1A.xpm
+NO 		./textures/ancientstone.xpm
+SO      ./textures/brick.xpm
+EA        ./textures/yellowstone.xpm
+WE         ./textures/greystone.xpm
 
-
-WE         ./textures/wall/LAB_4A.xpm
-EA     ./textures/wall/SUPPORT_6A.xpm           
-
-SO            ./textures/wall/TECH_0A.xpm
 F 220   ,      100,0
 C 225    ,30  ,    0112
 1111111111111

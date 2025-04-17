@@ -30,19 +30,6 @@ int ft_strncmp(char *s1, char *s2, int n)
 	return 0;
 }
 
-// int ft_strncmp(char *s1, char *s2, int n)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while(s1[i] && s2[i] && i < n)
-// 	{
-// 		if(s1[i] != s2[i])
-// 			return(0);
-// 		i++;
-// 	}
-// 	return(1);
-// }
 char *ft_dupwnl(char *str)
 {
 	char *dup;
@@ -66,9 +53,16 @@ char *ft_dupwnl(char *str)
 	dup[j] = '\0';
 	return(dup);
 }
-int is_valid_map(char c)
+int is_valid_char(char c)
 {
-	if(c == '1' || c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W')
-		return(1);
-	return(0);
+	if (c == '1' || c == '0' || c == ' ' || c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		return (1);
+	return (0);
 }
+
+// int is_valid_map(char c)
+// {
+// 	if(c == '1' || c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W')
+// 		return(1);
+// 	return(0);
+// }

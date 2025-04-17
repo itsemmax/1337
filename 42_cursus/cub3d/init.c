@@ -14,6 +14,9 @@ void init(t_info *map)
 	map->player_x = 0;
 	map->player_y = 0;
 	map->player_dir = 0;
+	map->mini_pos_x = 0;
+	map->mini_pos_y = 0;
+	map->speed = 0;
 }
 int init_ea_texture(t_info *map)
 {

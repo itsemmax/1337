@@ -13,6 +13,7 @@ int free_array(char ***str, int a)
 		i++;
 	}
 	free(*str);
+	*str = NULL;
 	if(a)
 		return(printf("invalid character in map\n"), -1);
 	return (0);
@@ -31,5 +32,21 @@ int free_texture(t_info *map)
 	free(map->so_texture);
 	free(map->ea_texture);
 	free(map->we_texture);
+	map->no_texture = NULL;
+	map->so_texture = NULL;
+	map->ea_texture = NULL;
+	map->we_texture = NULL;
 	return (0);
+}
+void free_map(char ***map,int a)
+{
+	int i;
+
+	i = 0;
+	while(i < a)
+	{
+		free(*(map[i]));
+		i++;
+	}
+	free(*map);
 }
