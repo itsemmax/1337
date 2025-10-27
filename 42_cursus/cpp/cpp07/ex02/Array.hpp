@@ -44,14 +44,14 @@ public:
 
 	T& operator[](size_t index) {
 		if (index >= length) {
-			throw std::exception();
+			throw std::runtime_error("Index out of bounds");
 		}
 		return arr[index];
 	}
 
 	const T& operator[](size_t index) const {
 		if (index >= length) {
-			throw std::exception();
+			throw std::runtime_error("Index out of bounds");
 		}
 		return arr[index];
 	}

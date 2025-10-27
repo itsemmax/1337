@@ -1,7 +1,7 @@
 #include "Array.hpp"
 
 int main(){
-	Array<int> arr(0);
+	Array<int> arr;
 	std::cout << "Size of empty array: " << arr.size() << std::endl;
 
 	Array<int> arr1(5);
@@ -13,16 +13,16 @@ int main(){
 	}
 
 	Array<std::string> arr3(3);
-	arr3[0] = "Hello";
-	arr3[1] = "World";
-	arr3[2] = "!";
+	arr3[0] = "emma";
+	arr3[1] = "test";
+	arr3[2] = "hola";
 	for (size_t i = 0; i < arr3.size(); ++i) {
 		std::cout << arr3[i] << std::endl;
 	}
 	try {
 		std::cout << arr1[10] << std::endl;
 	}catch (const std::exception& e) {
-		std::cerr << "Exception caught: " << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	return 0;
